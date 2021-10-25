@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+    <div class="grd">
+        <div class="rowOne" id="app">
+            {{ h1 }}
+        </div>
+
+        <div class="rowTwo" id="app2">
+            <div class=" " @dragover="dragover" @dragleave="dragleave" @drop="drop">
+                <input type="file" multiple name="fields[assetsFieldHandle][]" id="assetsFieldHandle"
+                    class="w-px h-px opacity-0 overflow-hidden absolute" @change="onChange" ref="file"
+                    accept=".txt,.xml" />
+                <label for="assetsFieldHandle" class="block cursor-pointer">
+                    <div>
+                        Drag and drop the file you want to convert
+                        or <span class="underline">click here</span>
+                    </div>
+                </label>
+                <ul class="list" v-if="this.filelist.length" v-cloak>
+                    <li class="text-sm p-1" v-for="file in filelist">
+                        ${ file.name }<button class="button" type="button" @click="remove(filelist.indexOf(file))"
+                            title="Remove file">x</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
