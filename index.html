@@ -28,10 +28,12 @@
                     </div>
                 </label>
                 <ul class="list" v-if="this.filelist.length" v-cloak>
-                    <li class="text-sm p-1" v-for="file in filelist">
-                        ${ file.name }<button class="button" type="button" @click="remove(filelist.indexOf(file))"
-                            title="Remove file">x</button>
+                    <li class="fline" v-for="file in filelist">
+                        <button class="removeButton" type="button" @click="remove(filelist.indexOf(file))"
+                        title="Remove file">x</button>${ file.name }
                     </li>
+                    <button class="button" type="button" @click="remove(filelist.indexOf(file))"
+                        title="Remove file">Convert</button>
                 </ul>
             </div>
         </div>

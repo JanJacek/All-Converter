@@ -1,7 +1,7 @@
 new Vue({
     el: '#app',
     data: {
-        h1:'All Converter 0.1 beta version'
+        h1:'All Converter 0.1'
     }
 }),
 new Vue({
@@ -13,6 +13,7 @@ new Vue({
     methods: {
       onChange() {
         this.filelist = [...this.$refs.file.files];
+        console.log(this.filelist);
       },
       remove(i) {
         this.filelist.splice(i, 1);
